@@ -1,0 +1,13 @@
+﻿@page "/productlist"
+@using BlazorNorthwindUI.Models
+@using BlazorNorthwindUI.Services
+@inject IProductService ProductService
+<h3>ProductList</h3>
+
+@code {
+    ProductListViewModel[] products;
+    protected override async Task OnInitializedAsync()
+    {
+        products = await IProductService.GetProducts();
+    }
+}
